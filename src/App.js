@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
+import uuid from 'uuid';
 
 class App extends Component {
     render() {
@@ -47,12 +47,69 @@ class Layout extends Component {
                 </div>
 
                 <div>
-                    <ArtCard />
+                    <ArtCardDashboard />
                 </div>
 
             </div>
 
         );
+    }
+}
+
+class ArtCardDashboard extends Component {
+    state = {
+        artcards: [
+            {
+                title: 'The Girl With A Pearl Earring',
+                artist: 'Johannes Vermeer',
+                id: uuid.v4(),
+                imgURL: 'https://s3.amazonaws.com/artswipe/art-images/Girl_With_A_Pearl_Earring.jpg',
+                datePainted: '1665'
+            },
+            {
+                title: 'Portrait of Adele Bloch-Bauer I',
+                artist: 'Gustav Klimt',
+                id: uuid.v4(),
+                imgURL: 'https://s3.amazonaws.com/artswipe/art-images/Gustav_Klimt-Adele-Bloch-Bauer1-865x577.jpg',
+                datePainted: '1907'
+            }
+        ]
+    }
+
+    render() {
+        return (
+            <div>
+                <ArtCardList
+                    artcard={this.state.artcards}
+                />
+            </div>
+        )
+    }
+}
+
+class ArtCardList extends Component {
+
+    render() {
+
+        const artCards = this.props.artcards.map((artcard) => (
+            <ArtCard
+                key={artcard.id}
+                id={artcard.id}
+                title={artcard.title}
+                artist={artcard.artist}
+                datePainted={artcard.datePainted}
+                imgURL={artcard.imgURL}
+            />
+        ))
+
+        return (
+
+            <div id="artcards">
+                {artCards}
+
+            </div>
+        );
+
     }
 }
 
@@ -65,15 +122,19 @@ class ArtCard extends Component {
                 <div className="column">
                     <div className="ui card">
                         <div className="ui centered small image">
-                            <img src="https://s3.amazonaws.com/artswipe/art-images/Sylvia-von-Harden-Otto-Dix-831x1024.jpg"></img>
+                            <img src={this.props.imgURL}></img>
                         </div>
                         <div className="content">
-                            <a className="header">Kristy</a>
+                            <a className="header">
+                                {this.props.title}
+                            </a>
                             <div className="meta">
-                                <span className="date">Joined in 2013</span>
+                                <span className="date">
+                                    {this.props.datePainted}
+                                </span>
                             </div>
                             <div className="description">
-                                Kristy is an art director living in New York.
+                                {this.props.artist}
                             </div>
                         </div>
                         <div className="extra content">
