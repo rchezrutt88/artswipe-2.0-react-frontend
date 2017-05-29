@@ -78,7 +78,7 @@ class ArtCardDashboard extends Component {
 
     render() {
         return (
-            <div>
+            <div className="ui container">
                 <ArtCardList
                     artcards={this.state.artcards}
                 />
@@ -104,8 +104,10 @@ class ArtCardList extends Component {
 
         return (
 
-            <div id="artcards">
+            <div id="artcards" className="ui four cards">
+
                 {artCards}
+
 
             </div>
         );
@@ -118,35 +120,34 @@ class ArtCard extends Component {
     render() {
 
         return (
-            <div className="ui three column centered grid">
-                <div className="column">
-                    <div className="ui card">
-                        <div className="ui centered small image">
-                            <img src={this.props.imgURL}></img>
-                        </div>
-                        <div className="content">
-                            <a className="header">
-                                {this.props.title}
-                            </a>
-                            <div className="meta">
+
+
+            <div className="ui card">
+                <div className="ui centered small image">
+                    <img src={this.props.imgURL}></img>
+                </div>
+                <div className="content">
+                    <a className="header">
+                        {this.props.title}
+                    </a>
+                    <div className="meta">
                                 <span className="date">
                                     {this.props.datePainted}
                                 </span>
-                            </div>
-                            <div className="description">
-                                {this.props.artist}
-                            </div>
-                        </div>
-                        <div className="extra content">
-                            <a>
-                                <i className="user icon"></i>
-                                22 Friends
-                            </a>
-                        </div>
+                    </div>
+                    <div className="description">
+                        {this.props.artist}
                     </div>
                 </div>
-
+                <div className="extra content">
+                    <a>
+                        <i className="user icon"></i>
+                        22 Friends
+                    </a>
+                </div>
             </div>
+
+
         );
     }
 }
