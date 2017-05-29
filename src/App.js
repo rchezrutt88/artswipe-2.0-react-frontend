@@ -80,7 +80,7 @@ class ArtCardDashboard extends Component {
         return (
             <div>
                 <ArtCardList
-                    artcard={this.state.artcards}
+                    artcards={this.state.artcards}
                 />
             </div>
         )
