@@ -1,0 +1,20 @@
+[
+  {
+    "title": "The Girl With A Pearl Earring",
+    "artist": "Johannes Vermeer",
+    "imgURL": "https://s3.amazonaws.com/artswipe/art-images/Girl_With_A_Pearl_Earring.jpg",
+    "dataPainted": "1665"
+  },
+  {
+    "title": "Portrait of Adele Bloch-Bauer I",
+    "artist": "Gustav Klimt",
+    "imgURL": "https://s3.amazonaws.com/artswipe/art-images/Gustav_Klimt-Adele-Bloch-Bauer1-865x577.jpg",
+    "dataPainted": "1907"
+  },
+  {
+    "title": "TPortrait of the Journalist Sylvia von Harden",
+    "artist": "Otto Dix",
+    "imgURL": "https://s3.amazonaws.com/artswipe/art-images/Sylvia-von-Harden-Otto-Dix-831x1024.jpg",
+    "dataPainted": "1926"
+  }
+]
