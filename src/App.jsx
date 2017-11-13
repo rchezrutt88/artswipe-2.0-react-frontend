@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
-import default_avatar from './default_avatar.jpg'
+import ReactDOM from 'react-dom';
+
 import './App.css';
-import data from './artworks'
+import Hammer from 'hammerjs';
+
+// import data from './artworks'
 
 
 class Swiper extends Component {
@@ -87,9 +89,19 @@ class ArtCard extends Component {
         }
     }
 
+    componentDidMount () {
+        this.hammer = new Hammer(ReactDOM.findDOMNode(this));
+        this.hammer.on('swipe', this.handleSwipe);
+
+    }
+
     handleVote = () => {
         this.setState({liked: 1});
         console.log(this.state);
+    }
+
+    handleSwipe (ev) {
+        console.log(ev);
     }
 
 
